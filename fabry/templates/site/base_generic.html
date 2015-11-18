@@ -1,0 +1,95 @@
+{% load fabry_extras %}
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/static/site/foundation-5.5.1/js/vendor/modernizr.js"></script>
+    <!-- <link rel="stylesheet" href="/static/site/vendor/highlight/styles/github.css"> -->
+    <link rel="stylesheet" href="/static/site/foundation-5.5.1/css/normalize.css" />
+    <link rel="stylesheet" href="/static/site/foundation-5.5.1/css/foundation.min.css" />
+    <link rel="stylesheet" href="/static/site/icons/foundation-icons/foundation-icons.css" />
+    
+    <link rel="stylesheet" href="/static/site/css/fabry.css" />
+  </head>
+
+  <body>
+
+    <div class="big_div">
+
+      <!-- navigation bar -->
+      <div>
+
+        <nav class="top-bar" data-topbar role="navigation" aria-hidden="true">
+          <ul class="title-area">
+            <li class="name" id="topbar_sft">
+              <h1> <a href="{% url 'home' %}">FaBRyDB</a> </h1>
+            </li>
+            <li class="toggle-topbar menu-icon"> <a href="#"><span>Menu</span></a> </li>
+          </ul>
+
+          <section class="top-bar-section">
+
+            <!-- Left Nav Section -->
+            <ul class="left">
+
+              {% if user.is_authenticated %}
+
+              <li class="has-dropdown" id="topbar_support">
+                <a href="#">Support</a>
+                <ul class="dropdown" >
+                  <li>
+                    <a id="topbar_contact_support" href="{% mailto_support %}" >Contact</a>
+                  </li>
+                </ul>
+              </li> 
+
+              {% endif %}
+            </ul>
+
+            <!-- Right Nav Section -->
+            <ul class="right">
+
+              {% if user.username %}
+              <li id="topbar_user" class="has-dropdown">
+                <a href="#"><span>{{ user.username }}</span></a>
+                <ul class="dropdown">
+                  <li>
+                    <a href="{% url 'logout' %}?next=/">Logout</a>
+                  </li>
+                </ul>
+              </li>
+              {% else %}
+              <li class="">
+                <a href="{% url 'login' %}">login</a>
+              </li>
+              {% endif %}
+            </ul>
+
+          </section>
+        </nav>
+        <!-- end of navigation bar -->     
+      </div>
+
+    <!-- main content  -->
+      <div class="row">
+        <div class="small-12 small-centered columns">
+          {% block main_content %}Extend this template!!{% endblock %}
+        </div>
+      </div>
+
+      <!--=====================-->
+      <!-- javascripts scripts -->
+      <!--=====================-->
+      <script src="/static/site/foundation-5.5.1/js/vendor/jquery.js"></script>
+      <script src="/static/site/foundation-5.5.1/js/vendor/jquery.cookie.js"></script>
+      <script src="/static/site/foundation-5.5.1/js/foundation.min.js"></script>
+      <script src="/static/site/foundation-5.5.1/js/vendor/fastclick.js"></script>
+      <script>
+        $(document).foundation();
+      </script>
+
+    </div>
+
+  </body>
+</html>

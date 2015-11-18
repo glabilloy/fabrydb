@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class=hero-unit>
+        <h1 class=heading>Welcome to FaBRyDB</h1>
+        <h2>Clinical database of Fabry disease patients.</h2>
+        <p>Patients population is located in Piaui, north-eastern Brazil.</p>
+        <p>FaBRyDB was built using the <a href="http://harvest.research.chop.edu/" target="_">Harvest framework</a>.
+        <p><a class="btn btn-primary" href="{% url "query" %}">Get Started</a></p>
+    </div>
+{% endblock %}

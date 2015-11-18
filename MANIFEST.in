@@ -1,0 +1,18 @@
+include requirements.txt
+include wsgi.py
+include bin/manage.py
+include Makefile
+
+graft _site
+graft server
+
+global-exclude .DS_Store
+
+exclude fabrydb/static/scripts/javascript/app.build.js
+exclude fabrydb/static/scripts/javascript/min/build.txt
+exclude fabrydb/conf/local_settings.py
+
+prune _site/static
+prune fabrydb/static/scripts/coffeescript
+prune fabrydb/static/stylesheets/scss
+prune tests

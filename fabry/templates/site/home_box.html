@@ -1,0 +1,84 @@
+{% extends 'site/base_generic.html' %}
+
+{% block main_content %}
+<h2 class="subheader">Welcome to <kbd>FaBRyDB</kbd> portal</h2>
+
+
+<div data-alert class="alert-box info radius">
+  This page contains links aimed at facilitating the navigation accross the portal sections.
+  <a href="#" class="close">&times;</a>
+</div>
+
+
+<div class="row" data-equalizer>
+
+  <div class="large-6 columns">
+
+    <div class="panel" data-equalizer-watch>
+
+      <h4 class="subheader">Add/Edit Data</h4>
+
+      <p>
+        <i class="fi-torsos-male-female"></i>
+        <a href="{% url 'fadmin:fabrydb_dadosgerais_changelist' %}" >
+          Patients information
+          <span class="label secondary">
+            Dados gerais
+          </span>
+        </a>
+        <span class="section-description">
+          Access the list of patients and their demographic information.
+        </span>
+      </p>
+
+      <p>
+        <i class="fi-plus"></i>
+        <a href="{% url 'fadmin:fabrydb_dadosdainfusao_add' %}" >
+          Record a new infusion
+          <span class="label secondary">
+            Dados da infusao
+          </span>
+        </a>
+        <span class="section-description">
+          Please select the patient, add mandatory information such as weight and click <kbd>Save and continue editing</kbd> to access dynamically computed fields.
+        </span>
+      </p>
+
+      <p>
+        <i class="fi-list"></i>
+        <a href="{% url 'fadmin:app_list' 'fabrydb' %}" >
+          Table list
+        </a>
+        <span class="section-description">
+          Lists all the tables used by the application.
+        </span>
+      </p>
+
+    </div>
+  </div>
+
+  <div class="large-6 columns">
+    <div class="panel" data-equalizer-watch>
+
+      <h4 class="subheader">Explore/Export Existing Data</h4>
+
+      <p>
+        <i class="fi-cloud"></i>
+        <a href="{% url 'query' %}" >
+          Harvest for FaBRyDB
+        </a>
+        <span class="section-description">
+          "Designed by and for biomedical researchers, The Harvest Stack is an open source BSD-licensed toolkit for building web applications for integrating, discovering, and reporting data."
+        </span>
+        <span class="label secondary">Learn more about <a href="http://harvest.research.chop.edu/" target="_blank">Harvest</a></span>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+<span class="label secondary">{{ nb_patients }} patients in the database</span>
+
+
+{% endblock %}

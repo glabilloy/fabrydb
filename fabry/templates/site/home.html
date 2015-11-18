@@ -1,0 +1,63 @@
+{% extends 'site/base_generic.html' %}
+
+{% block main_content %}
+<h2 class="subheader">Welcome to <kbd>FaBRyDB</kbd> portal</h2>
+
+
+<div data-alert class="alert-box info radius">
+  This page contains links aimed at facilitating the navigation accross the portal sections.
+  <a href="#" class="close">&times;</a>
+</div>
+
+
+<ul class="side-nav" >
+  <div class="panel callout">
+    <h5 class="subheader">Add/Edit Existing Data</h5>
+  </div>
+
+  <li>
+    <a href="{% url 'admin:fabrydb_dadosgerais_changelist' %}" >
+      Patients information
+      <span class="label secondary">
+        Dados gerais
+      </span>
+    </a>
+    <span>Access the list of patients and their demographic information.</span>  
+  </li>
+  <li>
+    <a href="{% url 'admin:fabrydb_dadosdainfusao_add' %}" >
+      Record a new infusion
+      <span class="label secondary">
+        Dados da infusao
+      </span>
+    </a>
+    <span>Please select the patient, add mandatory information such as weight and click <kbd>Save and continue editing</kbd> to access dynamically computed fields.</span>
+  </li>
+  <li>
+    <a href="{% url 'admin:app_list' 'fabrydb' %}" >
+      Table list
+    </a>
+    <span>Lists all the tables used by the application.</span>
+  </li>
+</ul>
+
+
+<ul class="side-nav">
+  <div class="panel callout">
+    <h5 class="subheader">Explore/Export Existing Data</h5>
+  </div>
+  <li>
+    <a href="{% url 'query' %}" >
+      Harvest for FaBRyDB
+    </a>
+    <span>"Designed by and for biomedical researchers, The Harvest Stack is an open source BSD-licensed toolkit for building web applications for integrating, discovering, and reporting data."
+    </span>
+  </li>
+</ul>
+
+
+<hr>
+<span class="label secondary">{{ nb_patients }} patients in the database</span>
+<span class="label secondary">Learn more about <a href="http://harvest.research.chop.edu/">Harvest</a></span>
+
+{% endblock %}

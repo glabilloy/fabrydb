@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block extrastyle %}
+
+{% endblock %}
+
+
+{% block title %}{{ title }} | {% trans 'FaBRyDB site admin' %}{% endblock %}
+
+{% block branding %}
+
+
+<h1 id="site-name"><a href="{% url 'home' %}">{% trans 'FaBRyDB' %}</a>{% trans ' - Data management' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

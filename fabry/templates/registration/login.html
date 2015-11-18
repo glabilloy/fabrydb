@@ -1,0 +1,49 @@
+{% extends "site/base_generic.html" %}
+
+{% block main_content %}
+
+<div class="large-6 large-centered columns">
+  <form method="post" url="{% url 'login' %}">
+    {% csrf_token %}
+
+    <h3>Please login</h3>
+
+    {% if user.is_authenticated %}
+
+    <span><b>You are already logged in as {{ user }}!</b> </span>
+
+    {% else %}
+
+    <div class="row">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+
+    <div class="row">
+      {{ form.password.label_tag }}
+      {{ form.password }}
+    </div>
+
+    <div class="row">
+      <div>
+        <input type="submit" class="button my_button tiny radius right" value="login" />
+        <input type="hidden" name="next" value="{{ next|default:'/' }}" />
+      </div>
+    </div>
+
+    {% endif %}
+
+</div>
+</div>
+
+{% if form.errors %}
+<div class="row">
+  <div data-alert class="alert-box">
+    <p>Your username and password didn't match. Please try again.</p>
+  </div>
+</div>
+{% endif %}
+
+</form>
+</div>
+{% endblock %}

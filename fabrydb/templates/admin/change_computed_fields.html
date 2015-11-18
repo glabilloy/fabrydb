@@ -1,0 +1,13 @@
+{% extends "admin/change_form.html" %}
+
+{% block computed_fields %}
+<fieldset>
+  <table width="100%">
+    <tr><td width="100px"> Numero da infusao:</td><td>{{ infusao.numero_da_infusao }}</td></tr>
+    <tr><td>Infusoes no mes:</td><td>{{ infusao.numero_de_infusoes_no_mes }}</td></tr>
+    <tr><td>Posologia Administrada:</td><td>{{ infusao.posologia_administrada_ml }} mL</td></tr>
+    <tr><td>Dose accumulada:</td><td>{{ infusao.dose_accumulada }} mL</td></tr>
+  </table>
+</fieldset>
+
+{% endblock %}
